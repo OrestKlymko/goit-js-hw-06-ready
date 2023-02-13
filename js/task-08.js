@@ -7,12 +7,11 @@ formEl.addEventListener('submit',formSubmit);
 
 function formSubmit(event){
     event.preventDefault();
-    console.log(event.currentTarget)
     const {email,password} = event.currentTarget;
 
-    if (email.value == "" || password.value == "") {
+    if (email.value === "" || password.value === "") {
          alert("Будь ласка, заповніть усі поля");
-    }
+    }else{
     function User(value1,value2) {
         this.email = value1.value;
         this.password = value2.value;
@@ -21,4 +20,5 @@ function formSubmit(event){
     let user = new User(email,password);
     console.log(user)
     event.currentTarget.reset()
+    }
 }

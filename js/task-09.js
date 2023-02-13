@@ -9,10 +9,11 @@ const bodyEl = document.querySelector('body')
 
 button.addEventListener('click',changeBodyandSpan)
 
+
 function changeBodyandSpan(){
-  
-  spanText.textContent=getRandomHexColor()
-  bodyEl.style.backgroundColor=getRandomHexColor()
+  let randomColor = getRandomHexColor();
+  spanText.textContent=randomColor
+  bodyEl.style.backgroundColor=randomColor
   
 }
 

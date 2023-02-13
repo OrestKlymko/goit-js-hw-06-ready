@@ -21,20 +21,9 @@ console.log(`Number of categories: ${liEl.length}`);
 const headerEl = document.querySelectorAll('h2');
 
 headerEl.forEach(el=>{
-    switch (el.textContent) {
-        case 'Animals':
-            console.log(`Category: Animals: ${el.nextElementSibling.children.length}`);
-            break;
 
-        case 'Products':
-            console.log(`Category: Products: ${el.nextElementSibling.children.length}`);
-            break;
+        console.log(`Category: ${el.textContent} elements: ${el.nextElementSibling.children.length}`);
 
-        case 'Technologies':
-            console.log(`Category: Technologies: ${el.nextElementSibling.children.length}`);
-            break;
-            
-    }
 })
 
 

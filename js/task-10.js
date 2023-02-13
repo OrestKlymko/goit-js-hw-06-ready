@@ -7,16 +7,20 @@ let createButton = document.querySelector('[data-create]');
 let destrButton = document.querySelector('[data-destroy]')
 let boxesEl = document.querySelector('#boxes');
 
+
 let newDiv;
 let arr =[];
-let startValue = 30;
+
 
 createButton.addEventListener('click',createBoxes);
-destrButton.addEventListener('click',destroyBoxes)
+
+destrButton.addEventListener('click',destroyBoxes);
 
 
 
 function createBoxes(amount){
+   
+    let startValue = 30;
     amount = inputEl.value
     for (let i=1; i<=amount;i++){
         newDiv = document.createElement('div');
@@ -26,14 +30,21 @@ function createBoxes(amount){
         newDiv.textContent = i;
         newDiv.style.backgroundColor=getRandomHexColor();
         arr.push(newDiv);
+        newDiv.remove();// не можу зрозуміти чому newDiv залишається в пам*яті.
+    }
+    boxesEl.append(...arr);
+    
     }
     
 
-        boxesEl.append(...arr)
-    }
-    
 
+    function destroyBoxes() {
 
-    function destroyBoxes(){
-    boxesEl.remove(boxesEl.children)
+        while (boxesEl.firstChild) {
+            boxesEl.removeChild(boxesEl.firstChild);
+        }
+        
+       //баг в тому, що коли видаляються всі елементи і нажимається кнопка створення елементу, 
+        // то якби з пам*яті піднімаються раніше створені елементи і також додаються.
+        //Намагався це вирішити на 33 стрічці, тим що видаляю тег одразу після його додавання в масив, але не розумію, як ще це можна реалізувати
     }

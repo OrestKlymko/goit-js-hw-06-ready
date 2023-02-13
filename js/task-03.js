@@ -17,19 +17,14 @@ const images = [
 let ulEl = document.querySelector('.gallery')
 
 function createImage(arr) {
-  return arr.map((image) => {
-
-    let {url, alt} = image;
-
-    let liEl = document.createElement('li');
-    let img = document.createElement('img');
-    let createSrc = img.setAttribute('src', `${url}`);
-    let createAlt = img.setAttribute('alt', `${alt}`);
-    liEl.insertAdjacentElement('afterbegin',img)
-    return liEl
-  })
+return arr.map(el=>{
+return `<li><img src="${el.url}" alt="${el.alt}"/></li>`
+}).join('')
 }
+let resultArr = createImage(images)
+console.log(resultArr)
+ulEl.insertAdjacentHTML('beforeend',resultArr)
 
-let resultFunc = createImage(images);
 
-ulEl.append(...resultFunc)
+
+
