@@ -31,9 +31,10 @@ function createBoxes(amount){
         newDiv.style.backgroundColor=getRandomHexColor();
         arr.push(newDiv);
         newDiv.remove();// не можу зрозуміти чому newDiv залишається в пам*яті.
+        
     }
     boxesEl.append(...arr);
-    
+    arr=[]
     }
     
 
